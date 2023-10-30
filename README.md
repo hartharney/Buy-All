@@ -46,8 +46,8 @@ Before you get started, ensure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/hartharney/Buy-All-.git
-   cd microservice-app
+   git clone https://github.com/hartharney/Buy-All.git
+   cd Buy-All
    ```
 
 2. Install dependencies:
