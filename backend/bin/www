@@ -3,8 +3,7 @@
 const dotenv = require("dotenv");
 const http = require("http");
 const { createServer } = require("http");
-const app = require("../dist/app");
-const sequelize = require("../db");
+const app = require("../dist/app").default;
 
 dotenv.config();
 
@@ -41,7 +40,6 @@ const server = createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-sequelize.sync().then(() => console.log("database connected successfully"));
 
 server.listen(port);
 server.on("error", onError);

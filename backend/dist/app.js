@@ -1,37 +1,34 @@
 "use strict";
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var cors = require("cors");
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var testAPIRouter = require("./routes/testAPI");
-var app = express();
-// view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "jade");
-app.use(logger("dev"));
-app.use(express.json());
-app.use(cors());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/testAPI", testAPIRouter);
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    next(createError(404));
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+const helmet_1 = __importDefault(require("helmet"));
+const cookie_parser_1 = __importDefault(require("cookie-parser"));
+// import session from "express-session";
+const morgan_1 = __importDefault(require("morgan"));
+// import passport from "passport";
+// const sequelize = require("../src/db/db.config");
+const db_config_1 = __importDefault(require("./db/db.config"));
+const index_1 = __importDefault(require("./Routes/index"));
+const app = (0, express_1.default)();
+db_config_1.default
+    .sync()
+    .then(() => console.log("database connected successfully"))
+    .catch((err) => {
+    console.log(err);
 });
-// error handler
-app.use(function (err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get("env") === "development" ? err : {};
-    // render the error page
-    res.status(err.status || 500);
-    res.render("error");
-});
-module.exports = app;
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: true }));
+app.use((0, cookie_parser_1.default)());
+app.use((0, morgan_1.default)("dev"));
+app.use((0, helmet_1.default)());
+app.use((0, cors_1.default)());
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: false
+// }));
+app.use("/", index_1.default);
+exports.default = app;
