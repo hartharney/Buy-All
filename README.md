@@ -1,4 +1,5 @@
 # Buy-All-
+
 BuyAll is an online retail platform that empowers vendors to create individual shop spaces, allowing customers to access products at competitive prices, guided by thoroughly reviewed ratings and trusted recommendations.
 
 # Microservice Application README
@@ -47,7 +48,7 @@ Before you get started, ensure you have the following installed:
 
    ```bash
    git clone https://github.com/hartharney/Buy-All-.git
-   cd microservice-app
+   cd backend
    ```
 
 2. Install dependencies:
@@ -90,26 +91,12 @@ The project structure follows the Model-View-Controller (MVC) design pattern and
 
 ## 8. API Documentation
 
-
-
 ## 9. Database
-
-
 
 ## 10. Testing
 
-
-
 ## 11. Deployment
-
-
 
 ## 12. Contributing
 
-
-
 ## 13. License
-
-
-
-
