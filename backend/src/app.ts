@@ -8,6 +8,7 @@ import logger from "morgan";
 // import passport from "passport";
 // const sequelize = require("../src/db/db.config");
 import sequelize from "./db/db.config";
+// import connection from "./db/db.config";
 
 import router from "./Routes/index";
 

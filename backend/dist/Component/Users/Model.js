@@ -8,7 +8,7 @@ const db_config_1 = __importDefault(require("../../db/db.config"));
 const sequelize_1 = require("sequelize");
 var ROLE;
 (function (ROLE) {
-    ROLE["endor"] = "VENDOR";
+    ROLE["vendor"] = "VENDOR";
     ROLE["admin"] = "ADMIN";
     ROLE["customer"] = "CUSTOMER";
 })(ROLE || (exports.ROLE = ROLE = {}));

@@ -2,7 +2,7 @@ import sequelize from "../../db/db.config";
 import { Model, DataTypes } from "sequelize";
 
 export enum ROLE {
-  endor = "VENDOR",
+  vendor = "VENDOR",
   admin = "ADMIN",
   customer = "CUSTOMER",
 }

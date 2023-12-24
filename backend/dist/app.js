@@ -12,6 +12,7 @@ const morgan_1 = __importDefault(require("morgan"));
 // import passport from "passport";
 // const sequelize = require("../src/db/db.config");
 const db_config_1 = __importDefault(require("./db/db.config"));
+// import connection from "./db/db.config";
 const index_1 = __importDefault(require("./Routes/index"));
 const app = (0, express_1.default)();
 db_config_1.default

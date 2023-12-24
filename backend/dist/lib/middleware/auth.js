@@ -17,7 +17,7 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const Model_1 = require("../../Component/Users/Model");
 const verifyToken = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const token = req.cookies("token");
+        const token = req.cookies.token; // Corrected line
         if (!token)
             return res.status(401).json({ message: "Access Denied" });
         const verified = jsonwebtoken_1.default.verify(token, process.env.TOKEN_SECRET);
@@ -31,7 +31,8 @@ const verifyToken = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
         next();
     }
     catch (err) {
-        res.status(500).json({ error: err.message });
+        console.error(err);
+        res.status(500).json({ error: "Internal Server Error" });
     }
 });
 exports.verifyToken = verifyToken;
